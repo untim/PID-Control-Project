@@ -30,9 +30,21 @@ I first tried to use the twiddle algorithm for the implementation. But unfortuna
 
 #### Describe the effect each of the P, I, D components had in your implementation.
 
-For me P has very drastic effect on the general stability of the vehicle which makes sense when looking at the formula. Finding the right value for P almost is the key for the implementation.
-Next when looking at D is smoothes the vehicle drastically. The combination of P & D already suffices to make it around the course successfully.
-Unfortunately I wasnt so found of I as regardless of how big or how small i made it, it didnt make things better. Thus in my final implementation I left it at 0.
+P stands for Proptional. I for Integral. D for derivative.
+
+What already can be deduced from the name Proportional is that the proportional control steers proportional to the cross track error of the vehicle. It is vital to find the right scaling factor of P in order avoid:
+* low P gain
+* high P gain
+
+However with P being our own input the next problem we have is overshooting. To correct for overshooting we introduce the D scaling factor. The scaling facotr is multiplied by the cross track error rate which looks at how fast we are moving in a perpendicular direction with respect to our desired trajectory. Finding the right value for D is once again vital in order to avoid:
+* low D gain (aka Underdamped)
+* hugh D gain (aka Overdamped)
+
+However for including environmental factors in our trajecotry planning we need one more intergral which is multplied by the I scaling factor. The integral term sums up the cross track errors and indicates whether we spend more time on one side or the other and thus can also correct for a lane offset. Choosing the right scaling factor is once again vital in order to avoid:
+* high I gain (leads to an unstable controller - as normal controller fluctuations will be exagerrated)
+* low I gain (takes to look to correct the steering angle)
+
+Thus it also makes sense to tune the P factor first and then the D factor. Furthermore it also made sense that I is 0 in my controller as the no external influences have to be taken into account.
 
 
 #### Describe how the final hyperparameters were chosen.
