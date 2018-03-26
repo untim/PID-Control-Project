@@ -38,9 +38,9 @@ What already can be deduced from the name Proportional is that the proportional 
 
 However with P being our own input the next problem we have is overshooting. To correct for overshooting we introduce the D scaling factor. The scaling facotr is multiplied by the cross track error rate which looks at how fast we are moving in a perpendicular direction with respect to our desired trajectory. Finding the right value for D is once again vital in order to avoid:
 * low D gain (aka Underdamped)
-* hugh D gain (aka Overdamped)
+* high D gain (aka Overdamped)
 
-However for including environmental factors in our trajecotry planning we need one more intergral which is multplied by the I scaling factor. The integral term sums up the cross track errors and indicates whether we spend more time on one side or the other and thus can also correct for a lane offset. Choosing the right scaling factor is once again vital in order to avoid:
+However for including environmental factors in our trajecotry planning we need one more intergral term which is multplied by the I scaling factor. The integral term sums up the cross track errors and indicates whether we spend more time on one side or the other and thus can also correct for a lane offset. Choosing the right scaling factor is once again vital in order to avoid:
 * high I gain (leads to an unstable controller - as normal controller fluctuations will be exagerrated)
 * low I gain (takes to look to correct the steering angle)
 
