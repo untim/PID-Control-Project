@@ -42,9 +42,9 @@ However with P being our own input the next problem we have is overshooting. To 
 
 However for including environmental factors in our trajecotry planning we need one more intergral term which is multplied by the I scaling factor. The integral term sums up the cross track errors and indicates whether we spend more time on one side or the other and thus can also correct for a lane offset. Choosing the right scaling factor is once again vital in order to avoid:
 * high I gain (leads to an unstable controller - as normal controller fluctuations will be exagerrated)
-* low I gain (takes to look to correct the steering angle)
+* low I gain (takes to long to correct the steering angle)
 
-Thus it also makes sense to tune the P factor first and then the D factor. Furthermore it also made sense that I is 0 in my controller as the no external influences have to be taken into account.
+Thus it also makes sense to tune the P factor first and then the D factor. Furthermore it also made sense that I is 0 in my controller as no external influences have to be taken into account.
 
 
 #### Describe how the final hyperparameters were chosen.
