@@ -34,12 +34,6 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
-  /*I did manual tuning:
-  From lectures I knew that a good initial value for Kp is between 0 and 1 and for Kd between 1 and above
-  So I tuned KP so long until it made it around the first curve. Afterwards I looked at Kd at tuned it starting from 1 updwards. 2.2 resulted in the best
-  results: next it tried to find an appropriate value for Ki. however no matter how I set it there werent significant improvements compared to leaving it at 0.
-  So in the end I left it set to 0.0.
-  */
   double init_Kp = 0.2;
   double init_Ki = 0.0;
   double init_Kd = 2.2;
